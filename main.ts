@@ -437,12 +437,6 @@ controller.combos.attachCombo("A+U", function () {
         game.splash("don't jump inside")
     }
 })
-controller.combos.attachCombo("U+A+B", function () {
-    tiles.loadMap(tiles.createMap(tilemap`level7`))
-    if (controller.A.isPressed()) {
-    	
-    }
-})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
