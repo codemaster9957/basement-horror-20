@@ -1,3 +1,79 @@
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f a a a a f f . . . . 
+        . . . f a a a f f a a a f . . . 
+        . . f f f f f c c f f f f f . . 
+        . . f f a c a c c a c a f f . . 
+        . . f a c f c f f c f c a f . . 
+        . . f f f c c a a c c f f f . . 
+        . f f a f c f a a f c f a f f . 
+        . f a a f f a a a a f a a a f . 
+        . . f a a a a a a a a a a f . . 
+        . . . f a a a a a a a a f . . . 
+        . . a 2 f f f f f f f f 2 a . . 
+        . . 2 d f c c c c c c f d 2 . . 
+        . . 2 2 f 2 2 2 2 2 2 f 2 2 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f . . . . . . . 
+        . . . f f a a a a f f . . . . . 
+        . . f a a a f f a a a f . . . . 
+        . . f f f f c c f f f f . . . . 
+        . f f a c a c c a c a f f . . . 
+        . f a c f c f f f c f a f . . . 
+        . f f f c f a a c c f f f . . . 
+        . f a c f f a a c f a a f . . . 
+        f f a f f a a a f a a a f f . . 
+        f f a a a a a a a a a a f a f . 
+        . . f a a a a a a a a f f b f . 
+        . . a f f f f f f f f c f b f . 
+        . . c f c c c c c a d d f c f . 
+        . . a f f f f f f a a c f f . . 
+        . . . f f f . . . . . . . . . . 
+        `,img`
+        . . . . . f f f f . . . . . . . 
+        . . . f f a a a a f f . . . . . 
+        . . f a a a f f a a a f . . . . 
+        . f f f f f c c f f f f f . . . 
+        . f f a c a c c a c a f f . . . 
+        . f a c f c f f c f c a f . . . 
+        . f f f c c a a c c f f f . . . 
+        f f a f c f a a f c f a f f . . 
+        f a a f f a a a a f a a a f . . 
+        . f a a a a a a a a a a f . . . 
+        . . f a a a a a a a a f . . . . 
+        . a 2 f f f f f f f f 2 a . . . 
+        . 2 d f c c c c c c f d 2 . . . 
+        . 2 2 f 2 2 2 2 2 2 f 2 2 . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . . f f . . f f . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f . . . . . . . 
+        . . . f f a a a a f f . . . . . 
+        . . f a a a f f a a a f . . . . 
+        . . f f f f c c f f f f . . . . 
+        . f f a c a c c a c a f f . . . 
+        . f a f c f f f c f c a f . . . 
+        . f f f c c a a f c f f f . . . 
+        . f a a f c a a f f c a f . . . 
+        . f a a a f a a a f f a f f . . 
+        . f a a a a a a a a a a f f . . 
+        . f f a a a a a a a a f . . . . 
+        . f 2 f f f f f f f f a . . . . 
+        . f d d a c c c c c f 2 . . . . 
+        . f 2 a a f f f f f f a . . . . 
+        . . . . . . . . f f f . . . . . 
+        `],
+    500,
+    false
+    )
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -148,6 +224,82 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         `],
     500,
     true
+    )
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f c c f f f . . . . 
+        . . . f f f c c c c f f f . . . 
+        . . f f f a a a a a a f f f . . 
+        . . f f a c c c c c c a a f . . 
+        . . f a c f f f f f f c a f . . 
+        . . f f f f a a a a f f f f . . 
+        . f f a f b c 2 2 c b f a f f . 
+        . f a a 2 1 b d d b 1 2 a a f . 
+        . . f f f f d d d d d a a f . . 
+        . f a b b a f 2 2 2 a a f . . . 
+        . f b a a b f c c 2 c f 2 a . . 
+        . f c b b c f 2 2 c c f d 2 . . 
+        . . f c c f 2 c c 2 2 f 2 2 . . 
+        . . . f f f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f c c f f f . . . . 
+        . . . f f f c c c c f f f . . . 
+        . . f f f a a a a a a f f f . . 
+        . . f f a c c c c c c a a f . . 
+        . f f a c f f f f f f c a f f . 
+        . f f f f f a a a a f f f f f . 
+        . . f a f c c 2 2 c c f a f . . 
+        . f f a 2 1 b d d b 1 2 a f . . 
+        f a f f a 2 d d d d 2 a f a . . 
+        f b f a f c c c c a d d 2 a . . 
+        f b f 2 f c c c c a d d a . . . 
+        f c f . f 2 2 c c f a a . . . . 
+        . f f . f f f f f f f . . . . . 
+        . . . . f f f . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f c c f f f . . . . 
+        . . . f f f c c c c f f f . . . 
+        . . f f f a a a a a a f f f . . 
+        . . f a a c c c c c c a f f . . 
+        . f f a c f f f f f f c a f f . 
+        . f f f f f a a a a f f f f f . 
+        . . f a f b f 2 2 f b f a f . . 
+        . . f a 2 1 f d d f 1 2 a f . . 
+        . . a f f f f d d d 2 a f . . . 
+        . . f d d d d f c c c f a f . . 
+        . . f b b b b f c c c f 2 a . . 
+        . . f b b b b f c 2 2 f . . . . 
+        . . . f c c f f f f f f . . . . 
+        . . . . f f . . . f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f c c f f f . . . . 
+        . . . f f f c c c c f f f . . . 
+        . . f f f a a a a a a f f f . . 
+        . . f a a c c c c c c a f f . . 
+        . f f a c f f f f f f c a f f . 
+        . f f f f f a a a a f f f f f . 
+        . . f a f c c 2 2 c c f a f . . 
+        . . f a 2 1 b d d b 1 2 a f f . 
+        . . a f a 2 d d d d 2 a f f a f 
+        . . a 2 d d a c c c c f a f b f 
+        . . . a d d a c c c c f 2 f b f 
+        . . . . a a f c c 2 2 f . f c f 
+        . . . . . f f f f f f f . f f . 
+        . . . . . . . . . f f f . . . . 
+        `],
+    500,
+    false
     )
 })
 let mySprite: Sprite = null
