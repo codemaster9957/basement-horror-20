@@ -83,7 +83,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.ay = 0
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
-    animation.stopAnimation(animation.AnimationTypes.All, mySprite)
+    sprites.destroyAllSpritesOfKind(SpriteKind.weapon_book)
     animation.runImageAnimation(
     mySprite,
     [img`
@@ -346,7 +346,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     false
     )
     tiles.loadMap(tiles.createMap(tilemap`level3`))
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 0))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 3))
+    animation.stopAnimation(animation.AnimationTypes.All, mySprite)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -424,6 +425,10 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
     mySprite.ay = 0
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level2`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 14))
 })
 controller.combos.attachCombo("A+U", function () {
     mySprite.ay = 50
