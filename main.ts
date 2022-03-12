@@ -1,6 +1,10 @@
 namespace SpriteKind {
     export const weapon_book = SpriteKind.create()
 }
+scene.onOverlapTile(SpriteKind.Player, tiles.util.arrow0, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level2`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(2, 15))
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -77,6 +81,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     false
     )
     mySprite.ay = 0
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
+	
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
