@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const weapon_book = SpriteKind.create()
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -73,6 +76,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     false
     )
+    mySprite.ax = 0
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -149,6 +153,9 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     true
     )
+})
+controller.combos.attachCombo("A+U", function () {
+    mySprite.ay = 50
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -301,6 +308,12 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     false
     )
+    mySprite.ax = 0
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.weapon_book, function (sprite, otherSprite) {
+    if (controller.A.isPressed()) {
+        game.showLongText("if you press up and A at the same time you will slash the ground ", DialogLayout.Bottom)
+    }
 })
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
@@ -321,4 +334,33 @@ mySprite = sprites.create(img`
     . . . f f f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+let mySprite2 = sprites.create(img`
+    .cccccccccccccccccccccc.
+    cbddddddddddddddddddddbc
+    cddddddddddddddddddddddc
+    cddddddddddddddddddddddc
+    cddddddddddddddddddddddc
+    cddddddddddddddddddddddc
+    cddddddddddddddddddddddc
+    cbddddddddddddddddddddbc
+    ccbbbbbbbbbbbbbbbbbbbbcc
+    ccffffffffffffffffffffcc
+    cbcc33c6c44c3c7c66c3ccbc
+    cbcc33c6c44c3c7c66c3ccbc
+    fbcc33c6c44ccc7c66c3ccbf
+    fdccccccc44cccccccccccdf
+    fdcbbdddd44ddddddddbbcdf
+    fdffffffffffffffffffffdf
+    fdccc6c33c4c6c44c3c7ccdf
+    fdccc6c33c4c6c44c3c7ccdf
+    fdccc6c33ccc6c44ccc7ccdf
+    fdccccccccccccccccccccdf
+    fdcbbddddddddddddddbbcdf
+    fdcbbddddddddddddddbbcdf
+    fdffffffffffffffffffffdf
+    ffffffffffffffffffffffff
+    `, SpriteKind.weapon_book)
+tiles.setCurrentTilemap(tilemap`level1`)
+scene.cameraFollowSprite(mySprite)
+tiles.placeOnTile(mySprite2, tiles.getTileLocation(8, 0))
 controller.moveSprite(mySprite)
