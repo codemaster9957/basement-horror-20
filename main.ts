@@ -76,7 +76,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     false
     )
-    mySprite.ax = 0
+    mySprite.ay = 0
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -153,9 +153,14 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     true
     )
+    mySprite.ay = 0
 })
 controller.combos.attachCombo("A+U", function () {
     mySprite.ay = 50
+    if (mySprite.tileKindAt(TileDirection.Center, sprites.dungeon.darkGroundCenter)) {
+        mySprite.ay = 0
+        game.splash("don't jump inside")
+    }
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -232,6 +237,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     true
     )
+    mySprite.ay = 0
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -308,7 +314,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     false
     )
-    mySprite.ax = 0
+    mySprite.ay = 0
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.weapon_book, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
