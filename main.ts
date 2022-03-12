@@ -78,7 +78,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . f f f . . . . . 
         `],
     500,
-    false
+    true
     )
     mySprite.ay = 0
 })
@@ -437,6 +437,12 @@ controller.combos.attachCombo("A+U", function () {
         game.splash("don't jump inside")
     }
 })
+controller.combos.attachCombo("U+A+B", function () {
+    tiles.loadMap(tiles.createMap(tilemap`level7`))
+    if (controller.A.isPressed()) {
+    	
+    }
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -587,9 +593,13 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . f f f . . . . 
         `],
     500,
-    false
+    true
     )
     mySprite.ay = 0
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level6`))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 8))
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.weapon_book, function (sprite, otherSprite) {
     if (controller.A.isPressed()) {
