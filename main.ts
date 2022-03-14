@@ -186,9 +186,13 @@ controller.combos.attachCombo("A+L", function () {
         ........................
         ........................
         `],
-    500,
+    100,
     true
     )
+    info.setScore(1)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
+    mySprite4.follow(mySprite, 50)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     sprites.destroyAllSpritesOfKind(SpriteKind.weapon_book)
@@ -649,9 +653,10 @@ controller.combos.attachCombo("A+R", function () {
         ........................
         ........................
         `],
-    500,
+    100,
     true
     )
+    info.setScore(1)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -729,6 +734,11 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
     mySprite.ay = 0
+})
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    if (controller.combos.idToString(controller.combos.ID.up) == 1) {
+        mySprite4.destroy()
+    }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -1022,8 +1032,10 @@ game.onUpdateInterval(5000, function () {
     500,
     true
     )
-    mySprite4.follow(mySprite, 50)
     mySprite5 = statusbars.create(20, 4, StatusBarKind.Health)
     mySprite5.attachToSprite(mySprite4)
     mySprite5.setBarBorder(1, 15)
+})
+game.onUpdateInterval(2000, function () {
+    info.setScore(0)
 })
