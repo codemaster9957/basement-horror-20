@@ -192,7 +192,7 @@ controller.combos.attachCombo("A+L", function () {
     info.setScore(1)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile7`, function (sprite, location) {
-    mySprite4.follow(mySprite, 50)
+    mySprite4.follow(mySprite, 300)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     sprites.destroyAllSpritesOfKind(SpriteKind.weapon_book)
@@ -736,7 +736,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.ay = 0
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
-    if (controller.combos.idToString(controller.combos.ID.up) == 1) {
+    if ((0 as any) == (1 as any)) {
         mySprite4.destroy()
     }
 })
